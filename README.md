@@ -53,3 +53,7 @@ unset color_prompt force_color_prompt
 
 ## Not breaking conda pip environments, add to .bashrc
 `export PATH="$CONDA_PREFIX/bin:$PATH"`
+
+
+## Updating make install library config on Ubuntu
+sudo ldconfig
