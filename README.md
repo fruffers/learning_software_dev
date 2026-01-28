@@ -57,3 +57,21 @@ unset color_prompt force_color_prompt
 
 ## Updating make install library config on Ubuntu
 sudo ldconfig
+
+## Multiple ROS setups
+```
+# >>> fishros initialize >>>
+echo "ros:foxy(1) noetic(2) ?"
+read choose
+case $choose in
+1) source  /opt/ros/foxy/setup.bash;
+source ~/cyclonedds_ws/install/setup.bash;
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp;
+export CYCLONEDDS_URI=~/cyclonedds_ws/cyclonedds.xml;
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH;;
+2) source  /opt/ros/noetic/setup.bash;;
+esac
+# <<< fishros initialize <<<
+export PATH=/usr/local/cuda-11.4/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64:$LD_LIBRARY_PATH
+```
